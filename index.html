@@ -77,8 +77,8 @@
   <button id="openGateBtn" onclick="apriCancello()">Apri Cancello</button>
 
   <div id="status">Il cancello si sta aprendo...</div>
-  <div id="closed">Accesso non disponibile, torna piÃ¹ tardi.</div>
-  <div id="geoError">Uhm, non sei davanti al cancelloâ¦</div>
+  <div id="closed">Accesso non disponibile, torna più tardi.</div>
+  <div id="geoError">Uhm, non sei davanti al cancello…</div>
 
   <div class="note">
     Ricorda di accettare/consentire la posizione attuale del tuo dispositivo per il corretto funzionamento.<br>
@@ -101,14 +101,14 @@
     function distanza(lat1, lon1, lat2, lon2) {
       const R = 6371e3;
       const rad = Math.PI / 180;
-      const Ï1 = lat1 * rad;
-      const Ï2 = lat2 * rad;
-      const ÎÏ = (lat2 - lat1) * rad;
-      const ÎÎ» = (lon2 - lon1) * rad;
+      const φ1 = lat1 * rad;
+      const φ2 = lat2 * rad;
+      const Δφ = (lat2 - lat1) * rad;
+      const Δλ = (lon2 - lon1) * rad;
 
-      const a = Math.sin(ÎÏ / 2) * Math.sin(ÎÏ / 2) +
-                Math.cos(Ï1) * Math.cos(Ï2) *
-                Math.sin(ÎÎ» / 2) * Math.sin(ÎÎ» / 2);
+      const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+                Math.cos(φ1) * Math.cos(φ2) *
+                Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
       const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
       return R * c;
@@ -153,7 +153,7 @@
         }
       } else {
         geoErrorMsg.style.display = "block";
-        geoErrorMsg.textContent = "Uhm, non sei davanti al cancelloâ¦";
+        geoErrorMsg.textContent = "Uhm, non sei davanti al cancello…";
       }
     }
 
@@ -198,3 +198,4 @@
 
 </body>
 </html>
+
